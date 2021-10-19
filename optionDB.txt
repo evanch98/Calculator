@@ -1,0 +1,3 @@
+*Button*relief: flat
+*Button*background: peachpuff
+*Button*width: 5
