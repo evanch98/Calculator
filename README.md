@@ -1,3 +1,3 @@
 # Calculator
 A Calculator GUI using tkinter.
-A simple calculatot. This is my own codes, and there is still a room for improvements.
+A simple, fully functional Calculator GUI. This is my own codes, and there is still a room for improvements.
