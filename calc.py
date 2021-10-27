@@ -2,15 +2,6 @@
 from tkinter import *
 import math
 
-def floatInt(numString):
-    """Try to change the string into integer first. If it gets error, change the string into float.
-    For number string only."""
-    try:
-        numString = int(numString)
-    except ValueError:
-        numString = float(numString)
-    return numString
-
 # Calculator Logic
 class Calculator:
     """Calculator Logic"""
