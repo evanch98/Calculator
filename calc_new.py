@@ -64,8 +64,10 @@ class Calculator:
             result = str(eval(''.join(Calculator.num_list)))
         except Exception:
             result = "Error"
+
+        Calculator.NUM = result
         
-        self.display_entry(entries=display, text=str(result))
+        self.display_entry(entries=display, text=Calculator.NUM)
 
         print(result)
 
@@ -85,7 +87,7 @@ calc = Calculator()
 
 # Display
 display = Entry(root)
-display.configure(width=25, state=DISABLED)
+display.configure(width=25, state='disabled')
 display.grid(row=0,column=0, columnspan=4, padx=5, pady=5)
 
 def buttons(text, command, row_num, column_num):
