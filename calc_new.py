@@ -1,5 +1,9 @@
 # Import required libraries
-from tkinter import *
+from tkinter import (
+    Tk,
+    Button,
+    Entry
+)
 import math
 
 # Calculator Logic
