@@ -8,7 +8,8 @@ import math
 
 # Calculator Logic
 class Calculator:
-    """Calculator Logic"""
+    """Validate the buttons by the get_button method, then calculate the result using the eval() function.
+    display_entry method displays the text in the entries."""
     # Class level variables to store the number throughout the process
     NUM = ''
     num_list = []
