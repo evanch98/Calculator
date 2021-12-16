@@ -10,9 +10,10 @@ import math
 class Calculator:
     """Validate the buttons by the get_button method, then calculate the result using the eval() function.
     display_entry method displays the text in the entries."""
-    # Class level variables to store the number throughout the process
-    NUM = ''
-    num_list = []
+    def __init__(self):
+        """Initializing Calculator class with two attributes to store numbers."""
+        self.num = ''
+        self.num_list = []
     
     def display_entry(self, entries, text):
         """This function displays the text in the entries."""
@@ -24,54 +25,54 @@ class Calculator:
     def get_button(self, x):
         """Validating Button Input"""
         if x in '1234567890':
-            Calculator.NUM += x
-            self.display_entry(entries=display, text=Calculator.NUM)
+            self.num  += x
+            self.display_entry(entries=display, text=self.num)
         elif x in '+-*/':
-            Calculator.num_list.append(Calculator.NUM)
-            Calculator.NUM = ''
-            Calculator.num_list.append(x)
+            self.num_list.append(self.num)
+            self.num = ''
+            self.num_list.append(x)
         elif x == 's':
-            Calculator.num_list.append(f'{Calculator.NUM}*{Calculator.NUM}')
-            Calculator.NUM = ''
+            self.num_list.append(f"{self.num}*{self.num}")
+            self.num = ''
         elif x == 'r':
-            Calculator.num_list.append(f'math.sqrt({Calculator.NUM})')
-            Calculator.NUM = ''
+            self.num_list.append(f'math.sqrt({self.num})')
+            self.num = ''
         elif x == '=':
-            Calculator.num_list.append(Calculator.NUM)
-            Calculator.NUM = ''
+            self.num_list.append(self.num)
+            self.num = ''
         elif x == 'morp':
-            if len(Calculator.NUM) < 1:
-                Calculator.NUM = '-'
+            if len(self.num) < 1:
+                self.num = '-'
             else:
-                if Calculator.NUM[0] == '-':
-                    Calculator.NUM = Calculator.NUM.replace('-', '')
+                if self.num[0] == '-':
+                    self.num = self.num.replace('-', '')
                 else:
-                    Calculator.NUM = '-' + Calculator.NUM
-            self.display_entry(entries=display, text=Calculator.NUM)
+                    self.num = '-' + self.num
+            self.display_entry(entries=display, text=self.num)
         elif x == 'p':
-            Calculator.NUM += '.'
-            self.display_entry(entries=display, text=Calculator.NUM)
+            self.num += '.'
+            self.display_entry(entries=display, text=self.num)
         elif x == 'C':
-            Calculator.NUM = ''
-            Calculator.num_list.clear()
+            self.num = ''
+            self.num_list.clear()
             self.display_entry(entries=display, text='')
         
-        print(Calculator.num_list)
+        print(self.num_list)
 
     def calculate(self):
         """Calculation using eval()."""
         try:
-            result = str(eval(''.join(Calculator.num_list)))
+            result = str(eval(''.join(self.num_list)))
         except Exception:
             result = "Error"
 
-        Calculator.NUM = result
+        self.num = result
         
-        self.display_entry(entries=display, text=Calculator.NUM)
+        self.display_entry(entries=display, text=self.num)
 
         print(result)
 
-        Calculator.num_list.clear()
+        self.num_list.clear()
 
 # Setting Up Window
 root = Tk()
